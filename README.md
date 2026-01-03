@@ -257,46 +257,6 @@ Change the default language in `Config.General.DefaultLocale`
 
 ---
 
-## 📁 File Structure
-
-```
-plenix-fivem-eas/
-├── client/
-│   ├── main.lua          # Client-side logic
-│   └── nui.lua           # NUI callbacks
-├── server/
-│   ├── main.lua          # Server-side functionality
-│   └── commands.lua      # Command handlers
-├── shared/
-│   ├── config.lua        # Configuration
-│   └── functions.lua     # Shared functions
-├── locales/
-│   ├── en.lua            # English translations
-│   ├── es.lua            # Spanish translations
-│   ├── de.lua            # German translations
-│   ├── fr.lua            # French translations
-│   ├── pt.lua            # Portuguese translations
-│   └── loader.lua        # Locale loader
-├── ui/
-│   ├── index.html        # NUI interface
-│   ├── js/
-│   │   ├── main.js       # Main UI logic
-│   │   ├── audio.js      # Audio handling
-│   │   └── animations.js # Animation effects
-│   └── css/
-│       ├── main.css      # Main styles
-│       ├── animations.css # Animation styles
-│       └── themes.css    # Theme styles
-├── assets/
-│   ├── audio/            # Alert sound files
-│   └── fonts/            # Custom fonts
-├── fxmanifest.lua        # Resource manifest
-├── LICENSE               # MIT License
-└── README.md             # This file
-```
-
----
-
 ## 🐛 Troubleshooting
 
 ### Audio Not Playing?
@@ -343,17 +303,6 @@ plenix-fivem-eas/
 
 ---
 
-## 📞 Support & Contributions
-
-For issues, questions, or contributions:
-
-1. 📝 Create an issue on GitHub
-2. 🔄 Submit a pull request for improvements
-3. 💬 Join our Discord community
-4. 📧 Contact Plenix Network
-
----
-
 ## 👥 Credits
 
 - **Developed by**: Plenix Network
@@ -365,37 +314,7 @@ For issues, questions, or contributions:
 
 ## 📄 License
 
-This project is licensed under the **MIT License**.  
-Feel free to use, modify, and distribute according to the license terms.
-
-```
-MIT License
-
-Copyright (c) 2026 Plenix Network
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software...
-```
-
-See [LICENSE](LICENSE) file for full details.
-
----
-
-## 🎯 Version History
-
-| Version | Date | Changes |
-|---------|------|---------|
-| **2.1.0** | Jan 2026 | Added `/stopalert` command, improved audio handling |
-| **2.0.0** | Dec 2025 | Major rewrite, new UI, multi-language support |
-| **1.0.0** | Nov 2025 | Initial release |
-
----
-
-## 🙏 Thank You!
-
+This project is licensed under the **MIT License**.
 Thank you for using Plenix FiveM EAS!  
 We hope this system helps create immersive emergency scenarios on your server.
 
