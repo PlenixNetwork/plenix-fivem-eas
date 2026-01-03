@@ -315,7 +315,3 @@ Change the default language in `Config.General.DefaultLocale`
 ## 📄 License
 
 This project is licensed under the **MIT License**.
-Thank you for using Plenix FiveM EAS!  
-We hope this system helps create immersive emergency scenarios on your server.
-
-**Made with ❤️ by Plenix Network**
