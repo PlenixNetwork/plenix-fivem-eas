@@ -1,0 +1,628 @@
+/*
+ * Plenix FiveM EAS- Main Stylesheet
+ * Modern and professional emergency alert styling
+ */
+
+/* ========================================
+   FONTS
+   ======================================== */
+@font-face {
+    font-family: 'VCR_OSD_MONO';
+    src: url('../assets/fonts/VCR_OSD_MONO.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../assets/fonts/Roboto-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+/* ========================================
+   ROOT VARIABLES
+   ======================================== */
+:root {
+    --font-primary: 'VCR_OSD_MONO', 'Courier New', monospace;
+    --font-secondary: 'Roboto', 'Arial', sans-serif;
+    
+    --color-bg: #000000;
+    --color-border: #ff0000;
+    --color-text: #ffffff;
+    --color-header: #ff0000;
+    --color-accent: #ffcc00;
+    
+    --border-width: 4px;
+    --border-radius: 0px;
+    --padding: 20px;
+    
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-secondary);
+    background: transparent;
+    color: var(--color-text);
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ========================================
+   ALERT CONTAINER
+   ======================================== */
+.alert-container {
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    padding: 0 20px;
+    pointer-events: none;
+}
+
+.alert-container.position-top {
+    top: 0;
+}
+
+.alert-container.position-center {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.alert-container.position-bottom {
+    bottom: 0;
+}
+
+/* ========================================
+   ALERT BOX
+   ======================================== */
+.alert-box {
+    font-family: var(--font-primary);
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--color-bg);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 
+        0 0 20px rgba(255, 0, 0, 0.3),
+        0 0 40px rgba(255, 0, 0, 0.2),
+        inset 0 0 60px rgba(255, 0, 0, 0.1);
+    animation: alertEnter 0.3s ease-out;
+    pointer-events: auto;
+}
+
+/* ========================================
+   ALERT HEADER
+   ======================================== */
+.alert-header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background: linear-gradient(180deg, rgba(255,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+    border-bottom: 2px solid var(--color-border);
+}
+
+.alert-icon-container {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-border);
+    border-radius: 50%;
+    margin-right: 20px;
+    animation: iconPulse 1s ease-in-out infinite;
+}
+
+.alert-icon-container i {
+    font-size: 28px;
+    color: var(--color-text);
+}
+
+.alert-title-container {
+    flex: 1;
+}
+
+.alert-system-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--color-header);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px var(--color-header);
+    margin-bottom: 5px;
+}
+
+.alert-type-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.alert-type-badge span:first-child {
+    font-size: 14px;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.priority-badge {
+    padding: 2px 10px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.priority-low {
+    background: #4a9eff;
+    color: white;
+}
+
+.priority-medium {
+    background: #ffa500;
+    color: black;
+}
+
+.priority-high {
+    background: #ff4444;
+    color: white;
+    animation: priorityPulse 0.5s ease-in-out infinite;
+}
+
+.priority-critical {
+    background: #ff0000;
+    color: white;
+    animation: criticalPulse 0.3s ease-in-out infinite;
+}
+
+.alert-close-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.alert-close-btn:hover {
+    background: rgba(255, 0, 0, 0.5);
+}
+
+/* ========================================
+   ALERT ISSUER
+   ======================================== */
+.alert-issuer {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.issuer-name {
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+.timestamp {
+    margin-left: auto;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+}
+
+/* ========================================
+   ALERT MESSAGE
+   ======================================== */
+.alert-message-container {
+    padding: 20px;
+    min-height: 80px;
+}
+
+.alert-message {
+    font-size: 20px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+}
+
+.marquee-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
+
+.marquee-text {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 20s linear infinite;
+    padding-left: 100%;
+}
+
+.marquee-text.no-scroll {
+    animation: none;
+    padding-left: 0;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* ========================================
+   PROGRESS BAR
+   ======================================== */
+.alert-progress {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--color-accent);
+    width: 100%;
+    transition: width 0.1s linear;
+}
+
+/* ========================================
+   MENU CONTAINER
+   ======================================== */
+.menu-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.menu-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+}
+
+.menu-box {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    background: linear-gradient(145deg, #1a1a2e 0%, #0f0f1a 100%);
+    border: 2px solid #333;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    animation: menuEnter 0.3s ease-out;
+}
+
+.menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 25px;
+    background: linear-gradient(90deg, #ff0000, #ff4444);
+    color: white;
+}
+
+.menu-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.menu-close-btn {
+    width: 35px;
+    height: 35px;
+    border: none;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.menu-close-btn:hover {
+    background: rgba(0, 0, 0, 0.5);
+    transform: rotate(90deg);
+}
+
+.menu-content {
+    padding: 25px;
+    max-height: calc(90vh - 80px);
+    overflow-y: auto;
+}
+
+/* ========================================
+   MENU SECTIONS
+   ======================================== */
+.menu-section {
+    margin-bottom: 25px;
+}
+
+.menu-section h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.menu-section h3 i {
+    color: #ff4444;
+}
+
+/* ========================================
+   ALERT TYPE GRID
+   ======================================== */
+.alert-type-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.alert-type-item {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    text-align: center;
+}
+
+.alert-type-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #444;
+    transform: translateY(-2px);
+}
+
+.alert-type-item.selected {
+    background: rgba(255, 0, 0, 0.2);
+    border-color: #ff4444;
+}
+
+.alert-type-item i {
+    font-size: 24px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.alert-type-item span {
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* ========================================
+   MESSAGE INPUT
+   ======================================== */
+.message-input {
+    width: 100%;
+    min-height: 120px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid #333;
+    border-radius: 10px;
+    color: white;
+    font-family: var(--font-secondary);
+    font-size: 14px;
+    resize: vertical;
+    transition: var(--transition-fast);
+}
+
+.message-input:focus {
+    outline: none;
+    border-color: #ff4444;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+}
+
+.message-input::placeholder {
+    color: #666;
+}
+
+.char-counter {
+    text-align: right;
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* ========================================
+   PRESET GRID
+   ======================================== */
+.preset-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+}
+
+.preset-item {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #333;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    text-align: center;
+    font-size: 13px;
+    color: #aaa;
+}
+
+.preset-item:hover {
+    background: rgba(255, 165, 0, 0.2);
+    border-color: #ffa500;
+    color: white;
+}
+
+.preset-item i {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffa500;
+}
+
+/* ========================================
+   MENU ACTIONS
+   ======================================== */
+.menu-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    font-family: var(--font-secondary);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.preview-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid #444;
+}
+
+.preview-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #666;
+}
+
+.send-btn {
+    background: linear-gradient(90deg, #ff0000, #ff4444);
+    color: white;
+}
+
+.send-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
+}
+
+.send-btn:active {
+    transform: translateY(0);
+}
+
+/* ========================================
+   SCROLLBAR
+   ======================================== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* ========================================
+   KEYFRAME ANIMATIONS
+   ======================================== */
+@keyframes alertEnter {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes menuEnter {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes priorityPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes criticalPulse {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 5px #ff0000;
+    }
+    50% {
+        opacity: 0.8;
+        box-shadow: 0 0 15px #ff0000;
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}

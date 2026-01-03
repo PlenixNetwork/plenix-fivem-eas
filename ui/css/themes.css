@@ -1,0 +1,222 @@
+/*
+ * Plenix FiveM EAS- Theme Overrides
+ * Dynamic theme colors applied via JavaScript
+ */
+
+/* ========================================
+   NUCLEAR THEME
+   ======================================== */
+.theme-nuclear {
+    --color-bg: #1a0a00;
+    --color-border: #ff6600;
+    --color-text: #ffffff;
+    --color-header: #ff6600;
+    --color-accent: #ffff00;
+}
+
+.theme-nuclear .alert-box {
+    background: linear-gradient(180deg, #1a0a00 0%, #0a0500 100%);
+}
+
+.theme-nuclear .alert-header {
+    background: linear-gradient(180deg, rgba(255, 102, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* ========================================
+   TORNADO THEME
+   ======================================== */
+.theme-tornado {
+    --color-bg: #0a0a1a;
+    --color-border: #00aaff;
+    --color-text: #ffffff;
+    --color-header: #00aaff;
+    --color-accent: #00ffff;
+}
+
+.theme-tornado .alert-box {
+    background: linear-gradient(180deg, #0a0a1a 0%, #050510 100%);
+}
+
+.theme-tornado .alert-header {
+    background: linear-gradient(180deg, rgba(0, 170, 255, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* ========================================
+   AMBER THEME
+   ======================================== */
+.theme-amber {
+    --color-bg: #1a1000;
+    --color-border: #ffaa00;
+    --color-text: #ffffff;
+    --color-header: #ffaa00;
+    --color-accent: #ffffff;
+}
+
+.theme-amber .alert-box {
+    background: linear-gradient(180deg, #1a1000 0%, #0a0800 100%);
+}
+
+.theme-amber .alert-header {
+    background: linear-gradient(180deg, rgba(255, 170, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* ========================================
+   EARTHQUAKE THEME
+   ======================================== */
+.theme-earthquake {
+    --color-bg: #1a0a0a;
+    --color-border: #8b4513;
+    --color-text: #ffffff;
+    --color-header: #cd853f;
+    --color-accent: #daa520;
+}
+
+.theme-earthquake .alert-box {
+    background: linear-gradient(180deg, #1a0a0a 0%, #0a0505 100%);
+}
+
+/* ========================================
+   TSUNAMI THEME
+   ======================================== */
+.theme-tsunami {
+    --color-bg: #001020;
+    --color-border: #0066cc;
+    --color-text: #ffffff;
+    --color-header: #0099ff;
+    --color-accent: #00ccff;
+}
+
+.theme-tsunami .alert-box {
+    background: linear-gradient(180deg, #001020 0%, #000510 100%);
+    box-shadow: 
+        0 0 20px rgba(0, 102, 204, 0.3),
+        0 0 40px rgba(0, 102, 204, 0.2);
+}
+
+.theme-tsunami .alert-header {
+    background: linear-gradient(180deg, rgba(0, 153, 255, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* ========================================
+   FIRE THEME
+   ======================================== */
+.theme-fire {
+    --color-bg: #1a0500;
+    --color-border: #ff3300;
+    --color-text: #ffffff;
+    --color-header: #ff6600;
+    --color-accent: #ffcc00;
+}
+
+.theme-fire .alert-box {
+    background: linear-gradient(180deg, #1a0500 0%, #0a0300 100%);
+    box-shadow: 
+        0 0 20px rgba(255, 51, 0, 0.4),
+        0 0 40px rgba(255, 102, 0, 0.3);
+}
+
+/* ========================================
+   POLICE THEME
+   ======================================== */
+.theme-police {
+    --color-bg: #000510;
+    --color-border: #0044ff;
+    --color-text: #ffffff;
+    --color-header: #3366ff;
+    --color-accent: #ff0000;
+}
+
+.theme-police .alert-box {
+    background: linear-gradient(180deg, #000510 0%, #000308 100%);
+}
+
+/* ========================================
+   MILITARY THEME
+   ======================================== */
+.theme-military {
+    --color-bg: #0a0a00;
+    --color-border: #556b2f;
+    --color-text: #ffffff;
+    --color-header: #6b8e23;
+    --color-accent: #9acd32;
+}
+
+.theme-military .alert-box {
+    background: linear-gradient(180deg, #0a0a00 0%, #050500 100%);
+    border-style: double;
+    border-width: 6px;
+}
+
+.theme-military .alert-header {
+    background: linear-gradient(180deg, rgba(107, 142, 35, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* ========================================
+   WEATHER THEME
+   ======================================== */
+.theme-weather {
+    --color-bg: #0a0a15;
+    --color-border: #4a4a6a;
+    --color-text: #ffffff;
+    --color-header: #7a7aaa;
+    --color-accent: #aaaacc;
+}
+
+.theme-weather .alert-box {
+    background: linear-gradient(180deg, #0a0a15 0%, #05050a 100%);
+}
+
+/* ========================================
+   DEFAULT/EMERGENCY THEME
+   ======================================== */
+.theme-default {
+    --color-bg: #000000;
+    --color-border: #ff0000;
+    --color-text: #ffffff;
+    --color-header: #ff0000;
+    --color-accent: #ffcc00;
+}
+
+.theme-default .alert-box {
+    background: linear-gradient(180deg, #0a0000 0%, #000000 100%);
+}
+
+/* ========================================
+   DARK MODE ADJUSTMENTS
+   ======================================== */
+@media (prefers-color-scheme: dark) {
+    .menu-box {
+        background: linear-gradient(145deg, #1a1a2e 0%, #0f0f1a 100%);
+    }
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+@media (max-width: 768px) {
+    .alert-system-name {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+    
+    .alert-icon-container {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .alert-icon-container i {
+        font-size: 20px;
+    }
+    
+    .alert-message {
+        font-size: 16px;
+    }
+    
+    .menu-box {
+        width: 95%;
+    }
+    
+    .alert-type-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

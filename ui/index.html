@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Alert System</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/themes.css">
+    
+    <!-- jQuery -->
+    <script src="nui://game/ui/jquery.js"></script>
+</head>
+<body>
+    <!-- Alert Display -->
+    <div id="alert-container" class="alert-container hidden">
+        <div id="alert-box" class="alert-box">
+            <!-- Header -->
+            <div class="alert-header">
+                <div class="alert-icon-container">
+                    <i id="alert-icon" class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="alert-title-container">
+                    <h1 id="alert-system-name" class="alert-system-name">EMERGENCY ALERT SYSTEM</h1>
+                    <div class="alert-type-badge">
+                        <span id="alert-type-name">Emergency Alert</span>
+                        <span id="alert-priority" class="priority-badge priority-high">HIGH</span>
+                    </div>
+                </div>
+                <button id="alert-close-btn" class="alert-close-btn hidden">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Issuer Info -->
+            <div class="alert-issuer">
+                <span id="alert-issued-by-label">Alert issued by:</span>
+                <span id="alert-issuer-name" class="issuer-name">Police Department</span>
+                <span id="alert-timestamp" class="timestamp">12:00:00</span>
+            </div>
+            
+            <!-- Message -->
+            <div class="alert-message-container">
+                <div id="alert-message" class="alert-message">
+                    <div class="marquee-wrapper">
+                        <div id="alert-message-text" class="marquee-text"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="alert-progress">
+                <div id="alert-progress-bar" class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Modal -->
+    <div id="menu-container" class="menu-container hidden">
+        <div class="menu-overlay"></div>
+        <div class="menu-box">
+            <div class="menu-header">
+                <h2><i class="fas fa-broadcast-tower"></i> <span id="menu-title">Emergency Alert System</span></h2>
+                <button id="menu-close-btn" class="menu-close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="menu-content">
+                <!-- Alert Type Selection -->
+                <div class="menu-section">
+                    <h3><i class="fas fa-list"></i> <span id="menu-select-type-label">Select Alert Type</span></h3>
+                    <div id="alert-type-grid" class="alert-type-grid">
+                        <!-- Alert types will be populated here -->
+                    </div>
+                </div>
+                
+                <!-- Message Input -->
+                <div class="menu-section">
+                    <h3><i class="fas fa-comment"></i> <span id="menu-message-label">Alert Message</span></h3>
+                    <textarea id="alert-message-input" class="message-input" placeholder="Enter your alert message..." maxlength="500"></textarea>
+                    <div class="char-counter">
+                        <span id="char-count">0</span>/500
+                    </div>
+                </div>
+                
+                <!-- Quick Presets -->
+                <div class="menu-section">
+                    <h3><i class="fas fa-bolt"></i> <span id="menu-presets-label">Quick Presets</span></h3>
+                    <div id="preset-grid" class="preset-grid">
+                        <!-- Presets will be populated here -->
+                    </div>
+                </div>
+                
+                <!-- Actions -->
+                <div class="menu-actions">
+                    <button id="preview-btn" class="action-btn preview-btn">
+                        <i class="fas fa-eye"></i> <span id="preview-label">Preview</span>
+                    </button>
+                    <button id="send-btn" class="action-btn send-btn">
+                        <i class="fas fa-paper-plane"></i> <span id="send-label">Send Alert</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <div id="audio-container" style="display: none;">
+        <audio id="audio-default" src="nui://plenix-fivem-eas/assets/audio/eas_default.mp3" preload="auto"></audio>
+        <audio id="audio-nuclear" src="nui://plenix-fivem-eas/assets/audio/eas_nuclear.mp3" preload="auto"></audio>
+        <audio id="audio-tornado" src="nui://plenix-fivem-eas/assets/audio/eas_tornado.mp3" preload="auto"></audio>
+        <audio id="audio-amber" src="nui://plenix-fivem-eas/assets/audio/eas_amber.mp3" preload="auto"></audio>
+        <audio id="audio-earthquake" src="nui://plenix-fivem-eas/assets/audio/eas_earthquake.mp3" preload="auto"></audio>
+        <audio id="audio-tsunami" src="nui://plenix-fivem-eas/assets/audio/eas_tsunami.mp3" preload="auto"></audio>
+        <audio id="audio-fire" src="nui://plenix-fivem-eas/assets/audio/eas_fire.mp3" preload="auto"></audio>
+        <audio id="audio-police" src="nui://plenix-fivem-eas/assets/audio/eas_police.mp3" preload="auto"></audio>
+        <audio id="audio-military" src="nui://plenix-fivem-eas/assets/audio/eas_military.mp3" preload="auto"></audio>
+        <audio id="audio-weather" src="nui://plenix-fivem-eas/assets/audio/eas_weather.mp3" preload="auto"></audio>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/audio.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
