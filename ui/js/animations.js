@@ -1,5 +1,5 @@
 /**
- * Plenix FiveM EAS- Animation Handler
+ * Plenix FiveM EAS - Animation Handler
  * Manages UI animations and effects
  */
 
