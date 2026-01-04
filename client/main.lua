@@ -1,5 +1,5 @@
 --[[
-    Plenix FiveM EAS- Client Main
+    Plenix FiveM EAS - Client Main
     Core client-side functionality
 ]]
 
