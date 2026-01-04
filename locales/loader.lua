@@ -1,5 +1,5 @@
 --[[
-    Plenix FiveM EAS- Locale Loader
+    Plenix FiveM EAS - Locale Loader
     Handles loading and retrieval of translations
 ]]
 
