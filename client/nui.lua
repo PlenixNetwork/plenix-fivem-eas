@@ -1,5 +1,5 @@
 --[[
-    Plenix FiveM EAS- Client NUI
+    Plenix FiveM EAS - Client NUI
     NUI callbacks and interactions
 ]]
 
@@ -85,7 +85,8 @@ RegisterNUICallback('previewAlert', function(data, cb)
         action = 'previewAlert',
         data = previewData,
         locale = GetLocaleData(),
-        debug = Config.General.Debug
+        debug = Config.General.Debug,
+        uiConfig = Config.UI
     })
     
     cb({ success = true })
