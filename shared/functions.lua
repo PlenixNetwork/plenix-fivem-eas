@@ -1,5 +1,5 @@
 --[[
-    Plenix FiveM EAS- Shared Functions
+    Plenix FiveM EAS - Shared Functions
     Utility functions available on both client and server
 ]]
 
