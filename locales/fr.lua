@@ -1,5 +1,5 @@
 --[[
-    Plenix FiveM EAS- French Locale (Français)
+    Plenix FiveM EAS - French Locale (Français)
 ]]
 
 Locales['fr'] = {
