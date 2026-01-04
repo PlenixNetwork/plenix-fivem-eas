@@ -1,5 +1,5 @@
 /**
- * Plenix FiveM EAS- Main JavaScript
+ * Plenix FiveM EAS - Main JavaScript
  * Core NUI functionality and event handling
  */
 
@@ -103,7 +103,7 @@ function handleNUIMessage(event) {
     
     switch (data.action) {
         case 'showAlert':
-            showAlert(data.data, data.locale);
+            showAlert(data.data, data.locale, false, data.uiConfig);
             break;
             
         case 'hideAlert':
@@ -111,7 +111,7 @@ function handleNUIMessage(event) {
             break;
             
         case 'previewAlert':
-            showAlert(data.data, data.locale || state.locale, true);
+            showAlert(data.data, data.locale || state.locale, true, data.uiConfig);
             break;
             
         case 'openMenu':
@@ -144,7 +144,7 @@ function handleNUIMessage(event) {
 /**
  * Show emergency alert
  */
-function showAlert(alertData, locale, isPreview = false) {
+function showAlert(alertData, locale, isPreview = false, uiConfig = null) {
     if (locale) {
         state.locale = locale;
     }
@@ -155,6 +155,24 @@ function showAlert(alertData, locale, isPreview = false) {
     // Apply theme
     const themeClass = 'theme-' + alertData.type;
     elements.alertBox.removeClass().addClass('alert-box').addClass(themeClass);
+    
+    // Apply UI config width and maxWidth
+    if (uiConfig) {
+        if (uiConfig.Width) {
+            elements.alertBox.css('width', uiConfig.Width);
+        }
+        if (uiConfig.MaxWidth) {
+            elements.alertBox.css('max-width', uiConfig.MaxWidth);
+        }
+        
+        // Show/hide close button based on config
+        const closeBtn = $('#alert-close-btn');
+        if (uiConfig.ShowCloseButton) {
+            closeBtn.removeClass('hidden');
+        } else {
+            closeBtn.addClass('hidden');
+        }
+    }
     
     // Apply animation class
     if (alertData.style && alertData.style.animation) {
@@ -180,11 +198,15 @@ function showAlert(alertData, locale, isPreview = false) {
         messageText.removeClass('no-scroll');
     }
     
-    // Update priority badge
+    // Update priority badge with translated text
     const priorityBadge = $('#alert-priority');
     priorityBadge.removeClass('priority-low priority-medium priority-high priority-critical');
     priorityBadge.addClass('priority-' + alertData.priority);
-    priorityBadge.text(alertData.priority.toUpperCase());
+    
+    // Get translated priority text from locale
+    const priorityKey = 'priority_' + alertData.priority;
+    const priorityText = locale?.[priorityKey] || alertData.priority.toUpperCase();
+    priorityBadge.text(priorityText);
     
     // Apply custom styles
     if (alertData.style) {
