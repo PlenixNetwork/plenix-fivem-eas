@@ -1,5 +1,5 @@
 --[[
-    Plenix FiveM EAS- Server Commands
+    Plenix FiveM EAS - Server Commands
     Command registration and handling
 ]]
 
