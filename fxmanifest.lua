@@ -41,22 +41,16 @@ files {
     'ui/js/audio.js',
     'ui/js/animations.js',
     
-    -- Fonts
-    'assets/fonts/VCR_OSD_MONO.ttf',
-    'assets/fonts/Roboto-Bold.ttf',
-    'assets/fonts/Roboto-Regular.ttf',
+    -- Fonts (all font files in assets/fonts folder)
+    'assets/fonts/*.ttf',
+    'assets/fonts/*.otf',
+    'assets/fonts/*.woff',
+    'assets/fonts/*.woff2',
     
-    -- Audio Files
-    'assets/audio/eas_default.mp3',
-    'assets/audio/eas_nuclear.mp3',
-    'assets/audio/eas_tornado.mp3',
-    'assets/audio/eas_amber.mp3',
-    'assets/audio/eas_earthquake.mp3',
-    'assets/audio/eas_tsunami.mp3',
-    'assets/audio/eas_fire.mp3',
-    'assets/audio/eas_police.mp3',
-    'assets/audio/eas_military.mp3',
-    'assets/audio/eas_weather.mp3'
+    -- Audio Files (all audio files in assets/audio folder)
+    'assets/audio/*.mp3',
+    'assets/audio/*.ogg',
+    'assets/audio/*.wav'
 }
 
 -- Dependencies (optional, remove if not using ESX)
