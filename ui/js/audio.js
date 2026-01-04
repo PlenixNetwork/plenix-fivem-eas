@@ -16,7 +16,7 @@ function audioDebug(...args) {
 // Audio state
 const audioState = {
     currentAudio: null,
-    volume: 0.8,
+    volume: 0.5,
     fadeOutInterval: null,
     loopTimeout: null,
     alertDuration: 0,
@@ -93,7 +93,14 @@ function unlockAudio() {
  * @param {number} volume - Volume level (0.0 - 1.0)
  * @param {number} duration - Alert duration in ms (for looping/stopping)
  */
-function playAlertSound(soundName, volume = 0.8, duration = 25000) {
+function playAlertSound(soundName, volume = 0.5, duration = 25000) {
+    // Ensure volume is a valid number, default to 0.5 if not
+    if (typeof volume !== 'number' || isNaN(volume)) {
+        volume = 0.5;
+    }
+    
+    audioDebug('playAlertSound called - sound:', soundName, 'volume:', volume, 'duration:', duration);
+    
     // Initialize audio context
     initAudioContext();
     
