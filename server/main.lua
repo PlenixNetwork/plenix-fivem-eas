@@ -1,5 +1,5 @@
 --[[
-    Plenix FiveM EAS- Server Main
+    Plenix FiveM EAS - Server Main
     Core server-side functionality
 ]]
 
