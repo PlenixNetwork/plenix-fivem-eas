@@ -205,10 +205,16 @@ body {
     border-radius: 50%;
     cursor: pointer;
     transition: var(--transition-fast);
+    pointer-events: auto;
 }
 
 .alert-close-btn:hover {
     background: rgba(255, 0, 0, 0.5);
+}
+
+.alert-close-btn.hidden {
+    display: none;
+    pointer-events: none;
 }
 
 /* ========================================
