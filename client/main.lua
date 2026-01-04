@@ -50,12 +50,13 @@ RegisterNetEvent('eas:receiveAlert', function(alertData)
     currentAlert = alertData
     isAlertActive = true
     
-    -- Send to NUI
+    -- Send to NUI with UI config
     SendNUIMessage({
         action = 'showAlert',
         data = alertData,
         locale = GetLocaleData(),
-        debug = Config.General.Debug
+        debug = Config.General.Debug,
+        uiConfig = Config.UI
     })
     
     -- Auto-hide after duration
