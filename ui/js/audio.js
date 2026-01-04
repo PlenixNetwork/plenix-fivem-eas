@@ -1,5 +1,5 @@
 /**
- * Plenix FiveM EAS- Audio Handler
+ * Plenix FiveM EAS - Audio Handler
  * Manages alert sounds and audio playback
  */
 
