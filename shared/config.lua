@@ -1,5 +1,5 @@
 --[[
-    Plenix FiveM EAS- Configuration File
+    Plenix FiveM EAS - Configuration File
     Configure all aspects of the Emergency Alert System
 ]]
 
