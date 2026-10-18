@@ -72,6 +72,7 @@ function bindEvents() {
     // Character counter
     elements.messageInput.on('input', function() {
         $('#char-count').text($(this).val().length);
+        hideMenuError();
     });
     
     // NUI message listener
@@ -336,6 +337,7 @@ function openMenu(locale, presets) {
     // Reset form
     elements.messageInput.val('');
     $('#char-count').text('0');
+    hideMenuError();
     state.selectedAlertType = 'default';
     
     // Request alert types
@@ -440,14 +442,35 @@ function previewAlert() {
 }
 
 /**
+ * Inline menu error
+ */
+let menuErrorTimeout = null;
+
+function showMenuError(message) {
+    $('#menu-error-text').text(message);
+    $('#menu-error').removeClass('hidden');
+    elements.messageInput.addClass('input-error');
+
+    clearTimeout(menuErrorTimeout);
+    menuErrorTimeout = setTimeout(hideMenuError, 4000);
+}
+
+function hideMenuError() {
+    clearTimeout(menuErrorTimeout);
+    $('#menu-error').addClass('hidden');
+    elements.messageInput.removeClass('input-error');
+}
+
+/**
  * Send alert
  */
 function sendAlert() {
     const message = elements.messageInput.val().trim();
     
     if (!message) {
-        // Show error - message required
-        alert(state.locale.notify_message_required || 'Please enter a message.');
+        // Show the error inside the menu (alert() opens a native Windows dialog in FiveM)
+        showMenuError(state.locale.notify_message_required || 'Please enter a message.');
+        elements.messageInput.trigger('focus');
         return;
     }
     
