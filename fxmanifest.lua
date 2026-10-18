@@ -5,7 +5,7 @@ lua54 'yes'
 name 'plenix-fivem-eas'
 author 'Plenix Network'
 description 'Advanced Emergency Alert System for FiveM with multiple alert types, translations, and customizable styles'
-version '2.1.0'
+version '2.1.1'
 
 -- Shared Scripts (loaded on both client and server)
 shared_scripts {
