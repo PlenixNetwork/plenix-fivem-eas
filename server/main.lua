@@ -47,10 +47,6 @@ function IsPlayerAdmin(source)
     return false
 end
 
-function IsPlayerAceAllowed(source, permission)
-    return IsPlayerAceAllowed(source, permission)
-end
-
 function IsPlayerJobAllowed(source)
     if not Framework then
         return false
@@ -394,9 +390,17 @@ RegisterNetEvent('eas:getAlertTypes', function()
     local source = source
     local department = GetPlayerDepartment(source)
     local allowedTypes = {}
-    
+
+    -- Admins (ace) always see every alert type
+    if IsPlayerAceAllowed(source, Config.Permissions.AdminPermission) then
+        department = 'admin'
+    elseif not EAS.GetDepartment(department) then
+        print(('[EAS] Warning: job/department "%s" of player %s is not in Config.Departments, only the default alert type is available.'):format(tostring(department), source))
+    end
+
     for key, data in pairs(Config.AlertTypes) do
-        if EAS.CanDepartmentUseAlertType(department, key) or department == 'admin' then
+        local unknownDepartment = not EAS.GetDepartment(department)
+        if EAS.CanDepartmentUseAlertType(department, key) or department == 'admin' or (unknownDepartment and key == 'default') then
             table.insert(allowedTypes, {
                 key = key,
                 name = data.name,
